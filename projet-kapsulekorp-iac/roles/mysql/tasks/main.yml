@@ -1,6 +1,5 @@
 ---
 # tasks file for roles/mysql
----
 - name: Installer MySQL et dépendances
   apt:
     name:
@@ -19,7 +18,7 @@
   mysql_db:
     name: "{{ db_name }}"
     state: present
-    login_unix_socket: /var/run/mysqld/mysqld.sockz
+    login_unix_socket: /var/run/mysqld/mysqld.sock
 
 - name: Créer l'utilisateur MySQL "db_user"
   mysql_user:
