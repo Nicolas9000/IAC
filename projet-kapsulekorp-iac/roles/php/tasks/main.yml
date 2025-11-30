@@ -1,0 +1,7 @@
+---
+# tasks file for roles/php
+- name: Installer PHP et modules nécessaires
+  apt:
+    name: ["php", "php-fpm", "php-mysql"]
+    state: present
+    update_cache: yes

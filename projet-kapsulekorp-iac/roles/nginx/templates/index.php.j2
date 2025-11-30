@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head><title>Test Application LAMP</title></head>
+<body>
+<h1>Connexion à la base de données</h1>
+<?php
+$host = '127.0.0.1';
+$dbname = '{{ db_name }}';
+$user = '{{ db_user }}';
+$pass = '{{ db_password }}';
+$charset = 'utf8mb4';
+try {
+$pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=$charset"
+,
+$user, $pass);
+echo "<p style='color:green;'>Connexion à la base de données
+'{$dbname}' réussie !</p>";
+} catch (\PDOException $e) {
+echo "<p style='color:red;'>Erreur de connexion : " . $e->getMessage() . "</p>";
+}
+?>
+</body>
+</html>

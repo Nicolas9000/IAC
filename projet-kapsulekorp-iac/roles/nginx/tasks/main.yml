@@ -1,0 +1,26 @@
+---
+# tasks file for roles/nginx
+- name: Mettre à jour le cache APT
+  apt:
+    update_cache: yes
+  changed_when: false
+
+- name: Installer le paquet Nginx
+  apt:
+    name: "{{ package_name }}"
+    state: present
+
+- name: S'assurer que le service Nginx est démarré et activé au boot
+  service:
+    name: "{{ package_name }}"
+    state: started
+    enabled: yes
+
+- name: Déployer l'application PHP via un template
+  template:
+    src: index.php.j2
+    dest: /var/www/html/index.php
+    owner: www-data
+    group: www-data
+    mode: "0644"
+  notify: Redémarrer Nginx

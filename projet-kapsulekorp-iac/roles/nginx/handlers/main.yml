@@ -1,0 +1,6 @@
+---
+# handlers file for roles/nginx
+- name: Redémarrer Nginx
+  service:
+    name: "{{ package_name }}"
+    state: restarted
