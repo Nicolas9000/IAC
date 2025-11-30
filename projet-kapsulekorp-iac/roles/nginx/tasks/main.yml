@@ -16,6 +16,15 @@
     state: started
     enabled: yes
 
+- name: Déployer la configuration Nginx
+  template:
+    src: default
+    dest: /etc/nginx/sites-available/default
+    owner: root
+    group: root
+    mode: "0644"
+  notify: Redémarrer Nginx
+
 - name: Déployer l'application PHP via un template
   template:
     src: index.php.j2
