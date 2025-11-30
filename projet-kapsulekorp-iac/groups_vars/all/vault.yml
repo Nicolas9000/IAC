@@ -1,0 +1,4 @@
+mysql_root_password: "UnMotDePasseRootTresComplexe"
+db_name: "webapp_db"
+db_user: "webapp_user"
+db_password: "UnAutreMotDePasseSolide"
